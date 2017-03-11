@@ -22,23 +22,38 @@ export class JokeDetailComponent implements OnInit {
     incrementGroan(): void {
         this.groanCount++;
         this.joke.addGroan();
+        this.jokeService.saveJoke(this.joke)
+            .subscribe(joke => {
+                this.joke = joke;
+                this.punchline = joke.punchline;
+                this.setup = joke.setup;
+                this.lolCount = joke.lolCount();
+                this.groanCount = joke.groanCount();
+            });
     }
 
     incrementLol(): void {
         this.lolCount++;
         this.joke.addLol();
+        this.jokeService.saveJoke(this.joke)
+            .subscribe(joke => {
+                this.joke = joke;
+                this.punchline = joke.punchline;
+                this.setup = joke.setup;
+                this.lolCount = joke.lolCount();
+                this.groanCount = joke.groanCount();
+            });
     }
 
     ngOnInit() {
         this.jokeId = this.route.snapshot.params['jokeId'];
         this.jokeService.getJoke(this.jokeId)
             .subscribe(joke => {
-                    this.joke = joke;
-                    this.punchline = joke.punchline;
-                    this.setup = joke.setup;
-                    this.lolCount = joke.lolCount();
-                    this.groanCount = joke.groanCount();
+                this.joke = joke;
+                this.punchline = joke.punchline;
+                this.setup = joke.setup;
+                this.lolCount = joke.lolCount();
+                this.groanCount = joke.groanCount();
             });
-
     }
 }

@@ -26,6 +26,13 @@ export class JokeService {
             .catch(this.handleError);
     }
 
+    saveJoke(joke: Joke) : Observable<Joke> {
+        return this.http.put(`${this.jokesUrl}/${joke.id}`, this.toJson(joke))
+            .map(this.extractData)
+            .map(this.fromJson)
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body || {};
@@ -36,7 +43,7 @@ export class JokeService {
     }
 
     private fromJson(joke: any): Joke {
-        return new Joke(joke.id, joke.Setup, joke.Punchline, joke.LOLCount, joke.GroanCount);
+        return new Joke(joke.id, joke.Setup, joke.Punchline, joke.Categories, joke.LOLCount, joke.GroanCount);
     }
 
     private handleError(error: Response | any) {
@@ -53,4 +60,19 @@ export class JokeService {
         return Observable.throw(errMsg);
     }
 
+
+
+    private toJson(joke: Joke) : any{
+        let jokeJson =
+        {
+            "Setup": joke.setup,
+            "Punchline": joke.punchline,
+            "LOLCount": joke.lolCount(),
+            "Categories" : joke.categories,
+            "GroanCount": joke.groanCount(),
+            "id": joke.id
+        };
+
+        return jokeJson;
+    }
 }

@@ -7,7 +7,8 @@ export class Joke {
     private groanVotes: Vote = new Vote(0);
     private lolVotes: Vote = new Vote(0);
 
-    constructor(public id: number, public setup: string, public punchline: string, private lols?: number, private groans?: number){
+    constructor(public id: number, public setup: string, public punchline: string, public categories: Array<string>,
+                private lols?: number, private groans?: number){
         if (lols) {
             this.lolVotes = new Vote(lols);
         }
