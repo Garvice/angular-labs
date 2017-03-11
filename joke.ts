@@ -1,8 +1,8 @@
 import {Vote} from "./vote";
 
 /**
- * Provides the ability to create a joke with a setup and punchline.
- * Tracks the total lols and groans the joke received over time.
+ * Provides the ability to create a JOKE with a setup and punchline.
+ * Tracks the total lols and groans the JOKE received over time.
  */
 export class Joke {
     private groanVotes: Vote = new Vote(0);
