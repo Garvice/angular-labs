@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Joke} from "../../../joke";
+import {NavigationExtras, Router} from "@angular/router";
 
 const JOKES: Array<Joke> =
     [
@@ -18,9 +19,22 @@ const JOKES: Array<Joke> =
 export class JokeListComponent implements OnInit {
     private jokes: Array<Joke> = JOKES;
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     ngOnInit() {
+    }
+
+    showJoke(joke: Joke):void {
+        let navigationExtras: NavigationExtras = {
+            queryParams: {
+                "setup": joke.setup,
+                "punchline": joke.punchline,
+                "lols": joke.lolCount(),
+                "groans": joke.groanCount()
+
+            }
+        };
+        this.router.navigate(["joke"], navigationExtras);
     }
 }

@@ -1,0 +1,8 @@
+div {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 5px #888888;
+  margin: 10px;
+  width: 500px;
+}

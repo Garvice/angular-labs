@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {Joke} from "../../../joke";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-joke',
@@ -14,7 +15,13 @@ export class JokeComponent implements OnInit {
 
   @Input() joke: Joke;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.setup = params["setup"];
+      this.punchline = params["punchline"];
+      this.lols = params["lols"];
+      this.groans = params["groans"];
+    });
   }
 
   incrementGroan(): void {
@@ -26,10 +33,6 @@ export class JokeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.setup = this.joke.setup;
-    this.punchline = this.joke.punchline;
-    this.lols = this.joke.lolCount();
-    this.groans = this.joke.groanCount();
   }
 
 }
