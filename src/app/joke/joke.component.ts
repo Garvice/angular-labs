@@ -9,10 +9,16 @@ const JOKE = new Joke("Why did the chicken cross the road?", "To get to the othe
   styleUrls: ['./joke.component.css']
 })
 export class JokeComponent implements OnInit {
-  private joke: Joke;
+  private setup: string;
+  private punchline: string;
+  private lols: number;
+  private groans: number;
 
   constructor() {
-    this.joke = JOKE;
+    this.punchline = JOKE.punchline;
+    this.setup = JOKE.setup;
+    this.lols = JOKE.lols();
+    this.groans = JOKE.groans();
   }
 
   ngOnInit() {

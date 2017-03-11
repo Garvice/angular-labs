@@ -1,2 +1,12 @@
-<div>{{joke.setup}}</div>
-<div>{{joke.punchline}}</div>
+<div>{{setup}}</div>
+<div>{{punchline}}</div>
+
+<div>
+    <strong><label for="lolCount">lols</label></strong>
+    <input type="number" id="lolCount" [(ngModel)]="lols" >
+</div>
+
+<div>
+    <strong><label for="groanCount">groans</label></strong>
+    <input type="number" id="groanCount" [(ngModel)]="groans">
+</div>
