@@ -2,12 +2,11 @@
 <div>{{punchline}}</div>
 
 <div>
-    <label for="lolCount">
-        lols: <app-up-vote id="lolCount" [votes]="lols" (onVoteIncremented)="incrementLol()"></app-up-vote>
-    </label>
+    <strong><label for="lolCount">lols</label></strong>
+    <input type="number" id="lolCount" [(ngModel)]="lols" >
+</div>
 
-    <label for="groanCount">
-        groans: <app-up-vote id="groanCount" [votes]="groans" (onVoteIncremented)="incrementGroan()"></app-up-vote>
-    </label>
-
+<div>
+    <strong><label for="groanCount">groans</label></strong>
+    <input type="number" id="groanCount" [(ngModel)]="groans">
 </div>

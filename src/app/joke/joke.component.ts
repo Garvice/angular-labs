@@ -21,14 +21,6 @@ export class JokeComponent implements OnInit {
     this.groans = JOKE.groans();
   }
 
-  incrementGroan(): void {
-    this.groans++;
-  }
-
-  incrementLol(): void {
-    this.lols++;
-  }
-
   ngOnInit() {
   }
 
