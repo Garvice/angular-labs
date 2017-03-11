@@ -1,0 +1,13 @@
+<div>{{setup}}</div>
+<div>{{punchline}}</div>
+
+<div>
+    <label for="lolCount">
+        lols: <app-up-vote id="lolCount" [votes]="lolCount" (onVoteIncremented)="incrementLol()"></app-up-vote>
+    </label>
+
+    <label for="groanCount">
+        groans: <app-up-vote id="groanCount" [votes]="groanCount" (onVoteIncremented)="incrementGroan()"></app-up-vote>
+    </label>
+
+</div>

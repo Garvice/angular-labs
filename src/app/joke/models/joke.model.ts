@@ -1,5 +1,4 @@
-import {Vote} from "./vote";
-
+import {Vote} from "./vote.model";
 /**
  * Provides the ability to create a JOKE with a setup and punchline.
  * Tracks the total lols and groans the JOKE received over time.
@@ -8,7 +7,7 @@ export class Joke {
     private groanVotes: Vote = new Vote(0);
     private lolVotes: Vote = new Vote(0);
 
-    constructor(public setup: string, public punchline: string, private lols?: number, private groans?: number){
+    constructor(public id: number, public setup: string, public punchline: string, private lols?: number, private groans?: number){
         if (lols) {
             this.lolVotes = new Vote(lols);
         }
