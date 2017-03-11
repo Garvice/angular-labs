@@ -1,7 +1,5 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {Joke} from "../../../joke";
-
-const JOKE = new Joke("Why did the chicken cross the road?", "To get to the other side", 3, 9);
 
 @Component({
   selector: 'app-joke',
@@ -14,11 +12,9 @@ export class JokeComponent implements OnInit {
   private lols: number;
   private groans: number;
 
+  @Input() joke: Joke;
+
   constructor() {
-    this.punchline = JOKE.punchline;
-    this.setup = JOKE.setup;
-    this.lols = JOKE.lols();
-    this.groans = JOKE.groans();
   }
 
   incrementGroan(): void {
@@ -30,6 +26,10 @@ export class JokeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setup = this.joke.setup;
+    this.punchline = this.joke.punchline;
+    this.lols = this.joke.lolCount();
+    this.groans = this.joke.groanCount();
   }
 
 }

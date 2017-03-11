@@ -6,11 +6,11 @@ import {Vote} from "./vote";
  */
 export class Joke {
     private groanVotes: Vote = new Vote(0);
-    private lolsVotes: Vote = new Vote(0);
+    private lolVotes: Vote = new Vote(0);
 
-    constructor(public setup: string, public punchline: string, lols?: number, groans?: number){
+    constructor(public setup: string, public punchline: string, private lols?: number, private groans?: number){
         if (lols) {
-            this.lolsVotes = new Vote(lols);
+            this.lolVotes = new Vote(lols);
         }
 
         if (groans) {
@@ -18,7 +18,7 @@ export class Joke {
         }
     }
 
-    groans(): number {
+    groanCount(): number {
         return this.groanVotes.voteCount();
     }
 
@@ -26,11 +26,11 @@ export class Joke {
         this.groanVotes.increment();
     }
 
-    lols(): number {
-        return this.lolsVotes.voteCount();
+    lolCount():number {
+        return this.lolVotes.voteCount();
     }
 
     addLol(): void{
-        this.lolsVotes.increment();
+        this.lolVotes.increment();
     }
 }
