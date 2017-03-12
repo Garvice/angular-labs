@@ -1,4 +1,4 @@
-import {Vote} from "./vote";
+import {Vote} from "./vote.modle";
 
 /**
  * Provides the ability to create a JOKE with a setup and punchline.

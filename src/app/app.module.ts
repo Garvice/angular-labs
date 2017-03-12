@@ -12,6 +12,7 @@ import {RouterModule, Routes} from "@angular/router";
 const appRoutes: Routes = [
   { path: 'joke-list', component: JokeListComponent },
   { path: 'joke', component: JokeComponent },
+  {path: '', pathMatch: 'full', redirectTo: 'joke-list'},
 ];
 
 @NgModule({
