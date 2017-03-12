@@ -18,8 +18,8 @@ export class JokeComponent implements OnInit {
         this.joke = Joke.getJoke;
         this.punchline = this.joke.punchline;
         this.setup = this.joke.setup;
-        this.lols = this.joke.lols();
-        this.groans = this.joke.groans();
+        this.lols = this.joke.lolCount();
+        this.groans = this.joke.groanCount();
 
     }
 
