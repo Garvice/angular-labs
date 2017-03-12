@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {Joke} from "../../../joke";
+import {Joke} from "../models/joke.model";
 
 const JOKE = new Joke("Why did the chicken cross the road?", "To get to the other side", 3, 9);
 
@@ -17,8 +17,8 @@ export class JokeComponent implements OnInit {
   constructor() {
     this.punchline = JOKE.punchline;
     this.setup = JOKE.setup;
-    this.lols = JOKE.lols();
-    this.groans = JOKE.groans();
+    this.lols = JOKE.lolCount();
+    this.groans = JOKE.groanCount();
   }
 
   incrementGroan(): void {
