@@ -1,4 +1,4 @@
-import {Vote} from "./vote";
+import {Vote} from "./vote.model";
 
 /**
  * Provides the ability to create a JOKE with a setup and punchline.
@@ -8,7 +8,9 @@ export class Joke {
     private groanVotes: Vote = new Vote(0);
     private lolVotes: Vote = new Vote(0);
 
-    constructor(public setup: string, public punchline: string, private lols?: number, private groans?: number){
+    public static getJoke: Joke = new Joke("Why did the chicken cross the road?", "To get to the other side", 3, 9);
+
+    constructor(public setup: string, public punchline: string, lols?: number, groans?: number) {
         if (lols) {
             this.lolVotes = new Vote(lols);
         }
@@ -26,11 +28,12 @@ export class Joke {
         this.groanVotes.increment();
     }
 
-    lolCount():number {
+    lolCount(): number {
         return this.lolVotes.voteCount();
     }
 
-    addLol(): void{
+    addLol(): void {
         this.lolVotes.increment();
     }
 }
+

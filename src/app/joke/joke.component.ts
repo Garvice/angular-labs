@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {Joke} from "../../../joke";
+import {Joke} from "../models/joke.model";
 
 @Component({
   selector: 'app-joke',
