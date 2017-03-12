@@ -1,4 +1,6 @@
-import {Vote} from "./vote";
+import {Vote} from "./vote.model";
+
+const CLASSIC_CHICKEN_JOKE = new Joke("Why did the chicken cross the road?", "To get to the other side", 3, 9);
 
 /**
  * Provides the ability to create a JOKE with a setup and punchline.
@@ -7,6 +9,8 @@ import {Vote} from "./vote";
 export class Joke {
     private groanVotes: Vote = new Vote(0);
     private lolsVotes: Vote = new Vote(0);
+
+    public static getJoke = CLASSIC_CHICKEN_JOKE;
 
     constructor(public setup: string, public punchline: string, lols?: number, groans?: number){
         if (lols) {
