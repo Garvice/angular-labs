@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 import {Http, Response} from "@angular/http";
 import {Joke} from "../joke/models/joke.model";
 
-const baseUrl = 'http://localhost:3000/api';
+const baseUrl = 'http://ec2-52-27-51-33.us-west-2.compute.amazonaws.com/api';
 
 @Injectable()
 export class JokeService {
